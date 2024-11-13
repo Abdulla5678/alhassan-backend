@@ -1,0 +1,20 @@
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    background-color: #7f7c7c;
+    width: 300px;
+    height: 90px;
+    border-radius: 15px ;
+    text-shadow: #7f7c7c;
+    color: black;
+}
