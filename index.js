@@ -16,7 +16,7 @@ mongoose.connect(url).then(()=>{
 
 app.use(cors())
 app.use(express.json())
-app.get('/test', (req, res) => {
+app.get('/', (req, res) => {
     res.send('API is working!');
 });
 app.use('/api/courses',coursesRouter)
@@ -24,7 +24,7 @@ app.use('/api/users', usersRouter)
 app.all('*',(req,res,next)=>{
     return res.status(404).json({
             status: httpStatusText.ERROR,
-            msg:`error message: resource not found`,
+            msg:` resource not found`,
             code: 404,
         })
 })
