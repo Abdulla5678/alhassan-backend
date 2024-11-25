@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.route('/')
     .get(courseController.getAllCourse)
-    .post(validationSchema(),courseController.addCourse)
+    .post(courseController.addCourse)
 
 router.route('/:courseId')
     .get(courseController.getCourse)

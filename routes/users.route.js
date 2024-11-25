@@ -26,7 +26,7 @@ const upload = multer({
 const router = express.Router()
 
 router.route('/')
-    .get(varifyToken,userController.getAllUsers)
+    .get(userController.getAllUsers)
 
 router.route('/register')
     .post(upload.single('avatar'), userController.register)

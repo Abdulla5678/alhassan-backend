@@ -10,7 +10,8 @@ const getAllCourse = asyncWrapper(
         const limit = req.query.limit || 3
         const page = req.query.page || 1
         const skip = (page - 1) * limit
-        const courses = await Course.find({},{"__v":false}).limit(limit).skip(skip)
+        // const courses = await Course.find({},{"__v":false}).limit(limit).skip(skip)
+        const courses = await Course.find({},{"__v":false})
         res.json({status: httpStatusText.SUCCESS , data : {courses}});
     }
 )
@@ -26,11 +27,11 @@ const getCourse = asyncWrapper(
 )
 const addCourse = asyncWrapper(
     async(req,res,next)=>{
-        const errors = validationResult(req);
-        if(!errors.isEmpty()){
-            const error = appError.create( errors.array(), 400, httpStatusText.FAIL)
-            return next(error);
-        }
+        // const errors = validationResult(req);
+        // if(!errors.isEmpty()){
+        //     const error = appError.create( errors.array(), 400, httpStatusText.FAIL)
+        //     return next(error);
+        // }
         const newCourse = new Course(req.body)
         await newCourse.save()
         res.status(201).json({ status: httpStatusText.SUCCESS, data: { course: newCourse}})
